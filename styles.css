@@ -1,0 +1,31 @@
+body {
+    background-color: hsl(40, 100%, 46%);
+  }
+.btn{
+    color:rgb(3, 63, 113);
+    background-color: rgb(169, 210, 246);
+}  
+  #root {
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+    align-items: center;
+    width: 80%;
+    background-color: hsl(213, 69%, 35%);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    line-height: 1;
+  }
+
+.list-group-item{
+    background-color: rgb(201, 252, 254);
+    border-radius: 6px;
+    border-color: rgb(129, 84, 0);
+}
+  
+  h1{
+    color:rgb(26, 61, 133);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', italic, sans-serif;
+}
+  
+  
