@@ -113,7 +113,7 @@ function App() {
   const pageSize = 10;
  
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    (`https://api.chucknorris.io/jokes/search?query=${query}`),
+    (`https://api.chucknorris.io/jokes/search?query=death`),
     {
       result: [],
     }
@@ -123,7 +123,10 @@ function App() {
   };
   
   const handleSearchBoxChange = (e) => {
+
+    
     setQuery(e.target.value);
+     
   };
   
   console.log(data.result);
@@ -133,7 +136,13 @@ function App() {
     console.log(`currentPage: ${currentPage}`);
   }
   return (
-    
+   
+   <form  onSubmit={event => {
+
+    setUrl(`https://api.chucknorris.io/jokes/search?query=${query}`);
+
+    event.preventDefault();
+  }}> 
     <Fragment>
         {isLoading ? ( //if loading is true
             <div>Loading ...</div>
@@ -144,7 +153,7 @@ function App() {
             <input onChange={handleSearchBoxChange} value={query} type="text" id="myQuery" className="form-control" placeholder="Enter your search...">
             </input>
             <div className="input-group-append">
-                <button className="btn btn-outline-secondary" onClick={handleSubmit}>Search</button>
+                <button className="btn btn-outline-secondary" type="submit">Search</button>
             </div>
             </div>
             <ul className="list-group">
@@ -162,7 +171,7 @@ function App() {
             onPageChange={handlePageChange}
         ></Pagination>
     </Fragment>
-
+  </form>
   );
 }
 
