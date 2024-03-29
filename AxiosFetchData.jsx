@@ -1,5 +1,7 @@
-const handleSubmit = () => {
-                                //need to resubmit query
+const handleSubmit = (event, setUrl, query) => {
+   setUrl(`https://api.chucknorris.io/jokes/search?query=${query}`);
+
+    event.preventDefault()          //need to resubmit query
 };
 
 
@@ -128,21 +130,23 @@ function App() {
     setQuery(e.target.value);
      
   };
-  
+  console.log(`Line 135 query value: ${query}`);
   console.log(data.result);
+
   let page = data.result;
   if (page.length >= 1) {
     page = paginate(page, currentPage, pageSize);
     console.log(`currentPage: ${currentPage}`);
   }
+
+  const handleSubmitForm = (event) => {
+    handleSubmit(event, setUrl, query);
+    console.log(`Line 149 query value: ${query}`);
+    event.preventDefault();
+  };
   return (
    
-   <form  onSubmit={event => {
-
-    setUrl(`https://api.chucknorris.io/jokes/search?query=${query}`);
-
-    event.preventDefault();
-  }}> 
+   <form  onSubmit={handleSubmitForm}> 
     <Fragment>
         {isLoading ? ( //if loading is true
             <div>Loading ...</div>
